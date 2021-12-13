@@ -1,4 +1,3 @@
-
 const AWS = require('aws-sdk')
 AWS.config.update({region: 'us-east-1'})
 // const mongoose = require('mongoose')
@@ -12,8 +11,20 @@ exports.handler = async(event,context)=>{
     try{
         const db = await connectDatabase.connect();
     
-        const result = await showEvent.find()
+        const today = new Date();
+        const endDate = new Date();
+        endDate.setDate(today.getDate() + 7);
+
+        const result = await showEvent.find({
+          date: {
+            $gte: new Date(today.setHours(00, 00, 00)),
+            $lte: new Date(endDate.setHours(00, 00, 00)),
+          },
+        })
+        .sort({ date: "asc" });
       
+
+
         return {
             statusCode: 200,
             headers: utils.getResponseHeaders(),

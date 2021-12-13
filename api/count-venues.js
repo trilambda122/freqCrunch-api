@@ -1,4 +1,3 @@
-
 const AWS = require('aws-sdk')
 AWS.config.update({region: 'us-east-1'})
 // const mongoose = require('mongoose')
@@ -12,12 +11,12 @@ exports.handler = async(event,context)=>{
     try{
         const db = await connectDatabase.connect();
     
-        const result = await showEvent.find()
+        const result = await showEvent.find().distinct('venue');
       
         return {
             statusCode: 200,
             headers: utils.getResponseHeaders(),
-            body: JSON.stringify(result)
+            body: JSON.stringify({venueCount: result.length})
         }
     }catch(err){
         console.log("Error", err)

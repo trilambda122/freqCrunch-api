@@ -31,3 +31,39 @@ functions:
           method: get
           cors:
             origin: '*'
+  count-all:
+      handler: api/count-all.handler
+      description: GET number of records in database
+      events:
+        - http:
+            path: get-count
+            method: get
+            cors:
+              origin: '*'
+  next-week:
+      handler: api/next-week.handler
+      description: GET number of records in database
+      events:
+        - http:
+            path: get-next-week
+            method: get
+            cors:
+              origin: '*'
+  count-next-week:
+      handler: api/count-next-week.handler
+      description: GET number of records in database
+      events:
+        - http:
+            path: get-count-next-week
+            method: get
+            cors:
+              origin: '*'
+  count-venues:
+    handler: api/count-venues.handler
+    description: GET number of records in database
+    events:
+      - http:
+          path: get-count-venues
+          method: get
+          cors:
+            origin: '*'

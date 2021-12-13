@@ -1,4 +1,3 @@
-
 const AWS = require('aws-sdk')
 AWS.config.update({region: 'us-east-1'})
 // const mongoose = require('mongoose')
@@ -12,7 +11,7 @@ exports.handler = async(event,context)=>{
     try{
         const db = await connectDatabase.connect();
     
-        const result = await showEvent.find()
+        const result = await showEvent.count();
       
         return {
             statusCode: 200,

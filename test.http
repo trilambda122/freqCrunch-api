@@ -1,7 +1,22 @@
 GET  http://localhost:3000/dev/shows 
 
+####
+GET  http://localhost:3000/dev/count/
+
+###
+GET http://localhost:3000/dev/get-next-week/   
+
+###
+GET http://localhost:3000/dev/get-count-next-week 
+###
 
 
 
-################################
- GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/shows/
+GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/shows/
+
+
+### 
+GET  https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/get-count
+
+###
+GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/get-count-next-week
