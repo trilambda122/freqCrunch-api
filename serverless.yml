@@ -79,3 +79,14 @@ functions:
           method: get
           cors:
             origin: '*'
+  count-artist:
+      handler: api/count-artist.handler
+      description: GET number of artist in database
+      environment:
+          DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
+      events:
+        - http:
+            path: get-count-artist
+            method: get
+            cors:
+              origin: '*'
