@@ -1,0 +1,7 @@
+GET  http://localhost:3000/dev/shows 
+
+
+
+
+################################
+ GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/shows/

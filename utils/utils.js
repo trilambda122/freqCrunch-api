@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 const getResponseHeaders = ()=> {
     return {
         'Access-Control-Allow-Origin' : '*'
@@ -5,5 +7,7 @@ const getResponseHeaders = ()=> {
 }
 
 module.exports ={
-    getResponseHeaders
+    getResponseHeaders,
+ 
+
 }

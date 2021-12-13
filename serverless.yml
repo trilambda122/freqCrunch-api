@@ -1,8 +1,13 @@
 
 
 service: freq-crunch-api
-
+useDotenv: true
 frameworkVersion: '2'
+
+plugins:
+  - serverless-offline
+
+
 
 provider:
   name: aws
@@ -11,9 +16,18 @@ provider:
   stage: dev
   region: us-east-1
   memorySize: 128
-  timeout: 5
+  timeout: 15
   endpointType: regional
+  
 
 
-
-
+functions: 
+  get-all:
+    handler: api/get-all.handler
+    description: GET all show events
+    events:
+      - http:
+          path: shows
+          method: get
+          cors:
+            origin: '*'
