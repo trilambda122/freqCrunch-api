@@ -1,12 +1,16 @@
 
 
 service: freq-crunch-api
-useDotenv: true
 frameworkVersion: '2'
+variablesResolutionMode: 20210219
+
+custom:
+  # Do this if you only want to load env vars into the Serverless environment
+  # This will make env vars available here and in any Serverless plugins
+  dotenvVars: ${file(config.js)}
 
 plugins:
   - serverless-offline
-
 
 
 provider:
@@ -19,12 +23,12 @@ provider:
   timeout: 15
   endpointType: regional
   
-
-
 functions: 
   get-all:
     handler: api/get-all.handler
     description: GET all show events
+    environment:
+      DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
     events:
       - http:
           path: shows
@@ -34,6 +38,8 @@ functions:
   count-all:
       handler: api/count-all.handler
       description: GET number of records in database
+      environment:
+        DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
       events:
         - http:
             path: get-count
@@ -43,6 +49,8 @@ functions:
   next-week:
       handler: api/next-week.handler
       description: GET number of records in database
+      environment:
+        DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
       events:
         - http:
             path: get-next-week
@@ -52,6 +60,8 @@ functions:
   count-next-week:
       handler: api/count-next-week.handler
       description: GET number of records in database
+      environment:
+        DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
       events:
         - http:
             path: get-count-next-week
@@ -61,6 +71,8 @@ functions:
   count-venues:
     handler: api/count-venues.handler
     description: GET number of records in database
+    environment:
+        DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
     events:
       - http:
           path: get-count-venues

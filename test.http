@@ -4,12 +4,12 @@ GET  http://localhost:3000/dev/shows
 GET  http://localhost:3000/dev/count/
 
 ###
-GET http://localhost:3000/dev/get-next-week/   
+GET http://localhost:3000/dev/get-next-week/   HTTP/1.1
 
 ###
 GET http://localhost:3000/dev/get-count-next-week 
 ###
-
+GET http://localhost:3000/dev/get-count-venues  
 
 
 GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/shows/

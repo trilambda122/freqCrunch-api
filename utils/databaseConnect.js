@@ -14,6 +14,5 @@ exports.connect = async function() {
     await conn;
    
   }
-  console.log('DATABASE--->', conn)
   return conn;
 };
