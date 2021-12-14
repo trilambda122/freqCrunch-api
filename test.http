@@ -20,3 +20,12 @@ GET  https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/get-count
 
 ###
 GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/get-count-next-week
+
+###
+GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/get-count-venues
+
+###
+ GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/get-count-artist
+
+###
+GET https://6mpzh8xbx1.execute-api.us-east-1.amazonaws.com/dev/shows

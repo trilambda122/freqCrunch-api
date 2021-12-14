@@ -16,7 +16,10 @@ exports.handler = async(event,context)=>{
         return {
             statusCode: 200,
             headers: utils.getResponseHeaders(),
-            body: JSON.stringify(result.length)
+            body: JSON.stringify({
+                length: result.length,
+                results: result
+            })
         }
     }catch(err){
         console.log("Error", err)
