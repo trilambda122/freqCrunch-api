@@ -9,7 +9,9 @@ const uri = process.env.DB_CONNECT_STRING
 exports.connect = async function() {
   if (conn == null) {
     conn = mongoose.connect(uri, {
-      serverSelectionTimeoutMS: 5000
+      serverSelectionTimeoutMS: 10000,
+      minPoolSize: 10,
+      socketTimeoutMS: 100000
     }).then(() => mongoose);
     await conn;
    

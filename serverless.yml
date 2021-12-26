@@ -1,7 +1,5 @@
-
-
 service: freq-crunch-api
-frameworkVersion: '2'
+frameworkVersion: "2"
 variablesResolutionMode: 20210219
 
 custom:
@@ -12,7 +10,6 @@ custom:
 plugins:
   - serverless-offline
 
-
 provider:
   name: aws
   runtime: nodejs12.x
@@ -22,11 +19,13 @@ provider:
   memorySize: 128
   timeout: 15
   endpointType: regional
-  
-functions: 
+
+functions:
   get-all:
     handler: api/get-all.handler
     description: GET all show events
+    memorySize: 1024
+    timeout: 30
     environment:
       DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
     events:
@@ -34,59 +33,59 @@ functions:
           path: shows
           method: get
           cors:
-            origin: '*'
+            origin: "*"
   count-all:
-      handler: api/count-all.handler
-      description: GET number of records in database
-      environment:
-        DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
-      events:
-        - http:
-            path: get-count
-            method: get
-            cors:
-              origin: '*'
+    handler: api/count-all.handler
+    description: GET number of records in database
+    environment:
+      DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
+    events:
+      - http:
+          path: get-count
+          method: get
+          cors:
+            origin: "*"
   next-week:
-      handler: api/next-week.handler
-      description: GET number of records in database
-      environment:
-        DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
-      events:
-        - http:
-            path: get-next-week
-            method: get
-            cors:
-              origin: '*'
+    handler: api/next-week.handler
+    description: GET number of records in database
+    environment:
+      DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
+    events:
+      - http:
+          path: get-next-week
+          method: get
+          cors:
+            origin: "*"
   count-next-week:
-      handler: api/count-next-week.handler
-      description: GET number of records in database
-      environment:
-        DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
-      events:
-        - http:
-            path: get-count-next-week
-            method: get
-            cors:
-              origin: '*'
+    handler: api/count-next-week.handler
+    description: GET number of records in database
+    environment:
+      DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
+    events:
+      - http:
+          path: get-count-next-week
+          method: get
+          cors:
+            origin: "*"
   count-venues:
     handler: api/count-venues.handler
     description: GET number of records in database
     environment:
-        DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
+      DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
     events:
       - http:
           path: get-count-venues
           method: get
           cors:
-            origin: '*'
+            origin: "*"
   count-artist:
-      handler: api/count-artist.handler
-      description: GET number of artist in database
-      environment:
-          DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
-      events:
-        - http:
-            path: get-count-artist
-            method: get
-            cors:
-              origin: '*'
+    handler: api/count-artist.handler
+    description: GET number of artist in database
+    environment:
+      DB_CONNECT_STRING: ${self:custom.dotenvVars.DB_CONNECT_STRING}
+    events:
+      - http:
+          path: get-count-artist
+          method: get
+          cors:
+            origin: "*"
